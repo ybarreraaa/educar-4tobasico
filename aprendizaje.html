@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Caperucita Roja</title>
+
+    <link rel="stylesheet"
+    href="css/aprendizaje.css">
+
+</head>
+
+<body>
+
+<section class="cuento-container">
+
+    <!-- TITULO -->
+
+    <h1>
+        📚 Comprensión Lectora
+    </h1>
+
+    <h2>
+        Caperucita Roja
+    </h2>
+
+    <!-- IMAGEN -->
+
+    <div class="imagen-cuento">
+
+        <img
+        src="img/caperucita.jpg"
+        alt="Caperucita Roja">
+
+    </div>
+
+    <!-- BOTONES -->
+
+    <div class="controles">
+
+        <button onclick="leerCuento()">
+            🔊 Leer Cuento
+        </button>
+
+        <button onclick="velocidadLenta()">
+            🐢 Lento
+        </button>
+
+        <button onclick="velocidadRapida()">
+            ⚡ Rápido
+        </button>
+
+    </div>
+
+    <!-- CUENTO -->
+
+    <div class="cuento">
+
+        <span>
+            Había una vez una niña llamada Caperucita Roja.
+        </span>
+
+        <span>
+            Su abuelita le regaló una capa roja que siempre llevaba puesta.
+        </span>
+
+        <span>
+            Un día su mamá le pidió llevar una canasta con comida a la casa de la abuela.
+        </span>
+
+        <span>
+            Para llegar debía cruzar un bosque lleno de árboles y flores.
+        </span>
+
+        <span>
+            Mientras caminaba apareció un lobo muy astuto que quería engañarla.
+        </span>
+
+        <span>
+            El lobo llegó primero a la casa de la abuela y se disfrazó con su ropa.
+        </span>
+
+        <span>
+            Cuando Caperucita llegó notó que su abuela se veía muy extraña.
+        </span>
+
+        <span>
+            Finalmente un cazador ayudó a salvar a la abuela y a Caperucita Roja.
+        </span>
+
+        <span>
+            Desde ese día Caperucita aprendió que nunca debe hablar con desconocidos.
+        </span>
+
+    </div>
+
+</section>
+
+<script>
+
+let velocidad = 0.9;
+
+// LEER CUENTO
+
+function leerCuento(){
+
+    speechSynthesis.cancel();
+
+    const textos =
+    document.querySelectorAll(".cuento span");
+
+    let index = 0;
+
+    function leerSiguiente(){
+
+        // TERMINAR
+
+        if(index >= textos.length){
+
+            return;
+        }
+
+        // QUITAR RESALTADO
+
+        textos.forEach(span => {
+
+            span.classList.remove("activo");
+
+        });
+
+        // RESALTAR TEXTO
+
+        textos[index]
+        .classList.add("activo");
+
+        // VOZ
+
+        const voz =
+        new SpeechSynthesisUtterance(
+            textos[index].innerText
+        );
+
+        voz.lang = "es-ES";
+
+        voz.rate = velocidad;
+
+        // CUANDO TERMINE
+
+        voz.onend = function(){
+
+            index++;
+
+            leerSiguiente();
+
+        };
+
+        speechSynthesis.speak(voz);
+
+    }
+
+    leerSiguiente();
+
+}
+
+// VELOCIDAD LENTA
+
+function velocidadLenta(){
+
+    velocidad = 0.7;
+
+}
+
+// VELOCIDAD RAPIDA
+
+function velocidadRapida(){
+
+    velocidad = 1.3;
+
+}
+
+</script>
+
+</body>
+
+</html>

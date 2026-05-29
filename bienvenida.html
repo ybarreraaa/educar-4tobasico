@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Bienvenida</title>
+
+    <link rel="stylesheet"
+    href="css/bienvenida.css">
+
+</head>
+
+<body>
+
+<section class="bienvenida">
+
+    <div class="caja">
+
+        <img
+        id="avatar"
+        class="avatar">
+
+        <h1 id="saludo">
+            Bienvenido
+        </h1>
+
+        <p>
+            🌟 Prepárate para aprender
+            comprensión lectora 🌟
+        </p>
+
+        <button onclick="comenzar()">
+            📚 COMENZAR
+        </button>
+
+    </div>
+
+</section>
+
+<script>
+
+const nombre =
+localStorage.getItem("nombre");
+
+const avatar =
+localStorage.getItem("avatar");
+
+document.getElementById("saludo")
+.innerHTML =
+"✨ Bienvenido " + nombre;
+
+document.getElementById("avatar")
+.src =
+avatar;
+
+// VOZ
+
+const voz =
+new SpeechSynthesisUtterance(
+"Bienvenido " + nombre
+);
+
+voz.lang = "es-ES";
+
+speechSynthesis.speak(voz);
+
+// BOTON
+
+function comenzar(){
+
+    window.location.href =
+    "aprendizaje.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

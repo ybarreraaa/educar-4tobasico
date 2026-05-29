@@ -1,0 +1,252 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:
+    'Poppins',
+    sans-serif;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ffd6e7,
+    #ffeed7,
+    #e0d4ff
+    );
+
+    overflow:hidden;
+}
+
+/* FONDO */
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    background:
+    rgba(255,255,255,0.3);
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    top:-120px;
+    left:-120px;
+}
+
+body::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    background:
+    rgba(255,192,203,0.3);
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    bottom:-120px;
+    right:-120px;
+}
+
+/* CONTENEDOR */
+
+.bienvenida{
+
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:2;
+}
+
+/* CAJA */
+
+.caja{
+
+    width:100%;
+    max-width:600px;
+
+    background:
+    rgba(255,255,255,0.25);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:40px;
+
+    padding:50px;
+
+    text-align:center;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.15);
+
+    animation:entrada 1s ease;
+}
+
+/* AVATAR */
+
+.avatar{
+
+    width:160px;
+    height:160px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:8px solid white;
+
+    margin-bottom:25px;
+
+    animation:flotar 3s infinite ease-in-out;
+
+    box-shadow:
+    0 0 35px rgba(255,105,180,0.7);
+}
+
+/* TITULO */
+
+h1{
+
+    font-size:42px;
+
+    color:#9d4f6c;
+
+    margin-bottom:15px;
+}
+
+/* TEXTO */
+
+p{
+
+    font-size:22px;
+
+    color:#666;
+
+    margin-bottom:35px;
+}
+
+/* BOTON */
+
+button{
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+    45deg,
+    #ff9ec9,
+    #c38cff
+    );
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.4s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.18);
+}
+
+button:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* ANIMACIONES */
+
+@keyframes entrada{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes flotar{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+    .caja{
+
+        padding:35px 20px;
+    }
+
+    h1{
+
+        font-size:32px;
+    }
+
+    p{
+
+        font-size:18px;
+    }
+
+    .avatar{
+
+        width:130px;
+        height:130px;
+    }
+
+    button{
+
+        width:100%;
+    }
+}

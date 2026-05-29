@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Educar 4to Básico</title>
+
+    <link rel="stylesheet"
+    href="css/estilo.css">
+
+</head>
+
+<body>
+
+<section class="login">
+
+    <div class="login-box">
+
+        <!-- IZQUIERDA -->
+
+        <div class="lado-izquierdo">
+
+            <h1>Lenguaje</h1>
+
+            <h2>4to Básico</h2>
+
+            <p>
+                Plataforma interactiva
+                de comprensión lectora
+                para niños.
+            </p>
+
+            <img
+            src="img/avatar1.jpeg"
+            class="logo">
+
+        </div>
+
+        <!-- DERECHA -->
+
+        <div class="lado-derecho">
+
+            <h2>Iniciar Sesión</h2>
+
+            <input
+            type="text"
+            id="nombre"
+            placeholder="Escribe tu nombre">
+
+            <h3>Selecciona tu avatar</h3>
+
+            <div class="avatars">
+
+                <img
+                src="img/avatar3.jpeg"
+                onclick="seleccionarAvatar(this)">
+
+                <img
+                src="img/avatar4.jpeg"
+                onclick="seleccionarAvatar(this)">
+
+                <img
+                src="img/avatar5.jpeg"
+                onclick="seleccionarAvatar(this)">
+
+            </div>
+
+            <p id="mensaje"></p>
+
+            <button onclick="entrar()">
+                🚀 ENTRAR
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="js/inicio.js"></script>
+
+</body>
+</html>

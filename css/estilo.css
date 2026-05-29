@@ -1,0 +1,578 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    overflow:hidden;
+
+    font-family:
+    'Poppins',
+    sans-serif;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ffd6e7,
+    #ffeede,
+    #ffc8da
+    );
+
+    position:relative;
+}
+
+/* =========================
+   FONDO ANIMADO
+========================= */
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    background:
+    rgba(255,255,255,0.35);
+
+    border-radius:50%;
+
+    filter:blur(100px);
+
+    top:-250px;
+    left:-150px;
+
+    animation:mover1 8s infinite alternate;
+}
+
+body::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    background:
+    rgba(255,182,193,0.35);
+
+    border-radius:50%;
+
+    filter:blur(100px);
+
+    bottom:-200px;
+    right:-100px;
+
+    animation:mover2 10s infinite alternate;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login{
+
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:10;
+}
+
+/* =========================
+   CAJA PRINCIPAL
+========================= */
+
+.login-box{
+
+    width:100%;
+    max-width:1150px;
+
+    display:flex;
+
+    border-radius:45px;
+
+    overflow:hidden;
+
+    background:
+    rgba(255,255,255,0.28);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,0.15);
+
+    animation:entrada 1s ease;
+}
+
+/* =========================
+   IZQUIERDA
+========================= */
+
+.lado-izquierdo{
+
+    width:45%;
+
+    background:
+    linear-gradient(
+    180deg,
+    #ffc6da,
+    #ffdfea
+    );
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:50px;
+
+    position:relative;
+}
+
+/* BURBUJAS */
+
+.lado-izquierdo::before{
+
+    content:"✨";
+
+    position:absolute;
+
+    top:40px;
+    left:50px;
+
+    font-size:50px;
+
+    animation:flotar 3s infinite;
+}
+
+.lado-izquierdo::after{
+
+    content:"⭐";
+
+    position:absolute;
+
+    bottom:40px;
+    right:60px;
+
+    font-size:40px;
+
+    animation:flotar 4s infinite;
+}
+
+/* TITULOS */
+
+.lado-izquierdo h1{
+
+    font-size:65px;
+
+    color:#b14f77;
+
+    margin-bottom:10px;
+
+    font-weight:800;
+}
+
+.lado-izquierdo h2{
+
+    font-size:35px;
+
+    color:#d17097;
+
+    margin-bottom:20px;
+}
+
+.lado-izquierdo p{
+
+    font-size:20px;
+
+    color:#6e5a64;
+
+    line-height:1.7;
+
+    max-width:320px;
+}
+
+/* LOGO */
+
+.logo{
+
+    width:170px;
+    height:170px;
+
+    margin-top:35px;
+
+    border-radius:35px;
+
+    object-fit:cover;
+
+    border:8px solid white;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,0.15);
+
+    animation:subirBajar 4s infinite ease-in-out;
+}
+
+/* =========================
+   DERECHA
+========================= */
+
+.lado-derecho{
+
+    width:55%;
+
+    padding:70px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+/* TITULO */
+
+.lado-derecho h2{
+
+    font-size:48px;
+
+    color:#b3567b;
+
+    margin-bottom:35px;
+
+    text-align:center;
+}
+
+/* INPUT */
+
+input{
+
+    width:100%;
+
+    padding:18px 22px;
+
+    border:none;
+
+    border-radius:20px;
+
+    margin-bottom:28px;
+
+    font-size:18px;
+
+    background:
+    rgba(255,255,255,0.85);
+
+    outline:none;
+
+    transition:0.4s;
+
+    box-shadow:
+    inset 0 2px 6px rgba(0,0,0,0.06);
+}
+
+input:focus{
+
+    transform:scale(1.03);
+
+    box-shadow:
+    0 0 22px rgba(255,105,180,0.5);
+}
+
+/* TEXTO */
+
+.lado-derecho h3{
+
+    text-align:center;
+
+    color:#7b6670;
+
+    font-size:23px;
+
+    margin-bottom:20px;
+}
+
+/* =========================
+   AVATARES
+========================= */
+
+.avatars{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:22px;
+
+    flex-wrap:wrap;
+}
+
+/* AVATAR */
+
+.avatars img{
+
+    width:115px;
+    height:115px;
+
+    border-radius:30px;
+
+    object-fit:cover;
+
+    cursor:pointer;
+
+    transition:0.4s;
+
+    border:5px solid transparent;
+
+    background:white;
+
+    padding:5px;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.12);
+}
+
+/* HOVER */
+
+.avatars img:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.08)
+    rotate(3deg);
+
+    box-shadow:
+    0 0 30px rgba(255,105,180,0.8);
+}
+
+/* SELECCIONADO */
+
+.selected{
+
+    border-color:#ff5ea8 !important;
+
+    transform:
+    scale(1.12);
+
+    animation:brillo 1s infinite alternate;
+
+    box-shadow:
+    0 0 35px rgba(255,105,180,1);
+}
+
+/* MENSAJE */
+
+#mensaje{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    font-size:18px;
+
+    color:#ff3b7a;
+
+    font-weight:bold;
+}
+
+/* =========================
+   BOTON
+========================= */
+
+button{
+
+    margin-top:35px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+    45deg,
+    #98a7ff,
+    #f0c27e
+    );
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.4s;
+
+    box-shadow:
+    0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* HOVER */
+
+button:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.04);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes entrada{
+
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes subirBajar{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+@keyframes brillo{
+
+    from{
+        box-shadow:
+        0 0 15px rgba(183, 216, 255, 0.918);
+    }
+
+    to{
+        box-shadow:
+        0 0 40px rgb(247, 149, 234);
+    }
+}
+
+@keyframes mover1{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(40px);
+    }
+}
+
+@keyframes mover2{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-40px);
+    }
+}
+
+@keyframes flotar{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+
+    .login-box{
+
+        flex-direction:column;
+    }
+
+    .lado-izquierdo,
+    .lado-derecho{
+
+        width:100%;
+    }
+
+    .lado-derecho{
+
+        padding:40px 25px;
+    }
+
+    .lado-izquierdo h1{
+
+        font-size:48px;
+    }
+
+    .lado-izquierdo h2{
+
+        font-size:28px;
+    }
+
+    .lado-derecho h2{
+
+        font-size:38px;
+    }
+
+    .avatars img{
+
+        width:90px;
+        height:90px;
+    }
+
+    .logo{
+
+        width:130px;
+        height:130px;
+    }
+}
