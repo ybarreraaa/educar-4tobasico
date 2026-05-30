@@ -17,9 +17,7 @@
 
 <body>
 
-<section class="cuento-container">
-
-    <!-- TITULO -->
+<section class="contenedor">
 
     <h1>
         📚 Comprensión Lectora
@@ -31,159 +29,49 @@
 
     <!-- IMAGEN -->
 
-    <div class="imagen-cuento">
-
-        <img
-        src="img/caperucita.jpg"
-        alt="Caperucita Roja">
-
-    </div>
+    <img
+    src="img/caperucita.avif"
+    class="imagen">
 
     <!-- BOTONES -->
 
-    <div class="controles">
+    <div class="botones">
 
-        <button onclick="leerCuento()">
-            🔊 Leer Cuento
+        <button onclick="leerTexto()">
+            🔊 Leer
         </button>
 
-        <button onclick="velocidadLenta()">
+        <button onclick="lento()">
             🐢 Lento
         </button>
 
-        <button onclick="velocidadRapida()">
+        <button onclick="rapido()">
             ⚡ Rápido
         </button>
 
     </div>
 
-    <!-- CUENTO -->
+    <!-- TEXTO -->
 
-    <div class="cuento">
+    <div
+    class="texto"
+    id="texto">
 
-        <span>
-            Había una vez una niña llamada Caperucita Roja.
-        </span>
-
-        <span>
-            Su abuelita le regaló una capa roja que siempre llevaba puesta.
-        </span>
-
-        <span>
-            Un día su mamá le pidió llevar una canasta con comida a la casa de la abuela.
-        </span>
-
-        <span>
-            Para llegar debía cruzar un bosque lleno de árboles y flores.
-        </span>
-
-        <span>
-            Mientras caminaba apareció un lobo muy astuto que quería engañarla.
-        </span>
-
-        <span>
-            El lobo llegó primero a la casa de la abuela y se disfrazó con su ropa.
-        </span>
-
-        <span>
-            Cuando Caperucita llegó notó que su abuela se veía muy extraña.
-        </span>
-
-        <span>
-            Finalmente un cazador ayudó a salvar a la abuela y a Caperucita Roja.
-        </span>
-
-        <span>
-            Desde ese día Caperucita aprendió que nunca debe hablar con desconocidos.
-        </span>
+        Había una vez una niña llamada Caperucita Roja. 
+        Su abuelita le regaló una capa roja que siempre llevaba puesta. 
+        Un día su mamá le pidió llevar comida a la casa de la abuela. 
+        Para llegar debía cruzar un bosque lleno de árboles. 
+        En el camino apareció un lobo muy astuto que quería engañarla. 
+        El lobo llegó primero a la casa de la abuela y se disfrazó con su ropa. 
+        Cuando Caperucita llegó notó que su abuela se veía muy extraña. 
+        Finalmente un cazador ayudó a salvar a la abuela y a Caperucita Roja. 
+        Desde ese día aprendió que nunca debe hablar con desconocidos.
 
     </div>
 
 </section>
 
-<script>
-
-let velocidad = 0.9;
-
-// LEER CUENTO
-
-function leerCuento(){
-
-    speechSynthesis.cancel();
-
-    const textos =
-    document.querySelectorAll(".cuento span");
-
-    let index = 0;
-
-    function leerSiguiente(){
-
-        // TERMINAR
-
-        if(index >= textos.length){
-
-            return;
-        }
-
-        // QUITAR RESALTADO
-
-        textos.forEach(span => {
-
-            span.classList.remove("activo");
-
-        });
-
-        // RESALTAR TEXTO
-
-        textos[index]
-        .classList.add("activo");
-
-        // VOZ
-
-        const voz =
-        new SpeechSynthesisUtterance(
-            textos[index].innerText
-        );
-
-        voz.lang = "es-ES";
-
-        voz.rate = velocidad;
-
-        // CUANDO TERMINE
-
-        voz.onend = function(){
-
-            index++;
-
-            leerSiguiente();
-
-        };
-
-        speechSynthesis.speak(voz);
-
-    }
-
-    leerSiguiente();
-
-}
-
-// VELOCIDAD LENTA
-
-function velocidadLenta(){
-
-    velocidad = 0.7;
-
-}
-
-// VELOCIDAD RAPIDA
-
-function velocidadRapida(){
-
-    velocidad = 1.3;
-
-}
-
-</script>
+<script src="js/aprendizaje.js"></script>
 
 </body>
 
